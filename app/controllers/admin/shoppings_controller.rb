@@ -1,7 +1,7 @@
 class Admin::ShoppingsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :authenticate_admin
-	before_action :set_shopping, only: [:show, :edit, :update]
+	before_action :set_shopping, only: [:show, :edit, :update, :destroy]
 
   def index
   	@shoppings = Shopping.all
@@ -36,6 +36,12 @@ class Admin::ShoppingsController < ApplicationController
       flash.now[:alert] = "product was failed to update"
       render :edit
     end
+  end
+
+  def destroy
+  	@shopping.destroy
+  	redirect_to admin_shoppings_path
+  	flash[:alert] = "product was deleted"
   end
 
   private
