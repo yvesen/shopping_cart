@@ -4,7 +4,7 @@ class Admin::ShoppingsController < ApplicationController
 	before_action :set_shopping, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@shoppings = Shopping.all
+  	@shoppings = Shopping.page(params[:page]).per(10)
   end
 
   def new
