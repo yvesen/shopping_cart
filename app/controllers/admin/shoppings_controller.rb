@@ -21,6 +21,10 @@ class Admin::ShoppingsController < ApplicationController
     end
   end
 
+  def show
+  	@shopping = Shopping.find(params[:id])
+  end
+
   private
 
   def shopping_params
