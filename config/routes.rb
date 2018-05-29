@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "shoppings#index"
 
   namespace :admin do
+  	resources :shoppings
     root "shoppings#index"
   end
 
