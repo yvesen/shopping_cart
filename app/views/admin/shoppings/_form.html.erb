@@ -18,5 +18,9 @@
   <%= f.label :price, "Price" %>
   <%= f.text_field :price %>
 
+  <%= f.label :image, "Photo" %>
+  <%= image_tag @shopping.image, width: '300px' if @shopping.image? %>
+  <%= f.file_field :image %>
+
   <%= f.submit %>
 <% end %>

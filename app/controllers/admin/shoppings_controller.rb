@@ -47,7 +47,7 @@ class Admin::ShoppingsController < ApplicationController
   private
 
   def shopping_params
-    params.require(:shopping).permit(:name, :description, :price)
+    params.require(:shopping).permit(:name, :description, :price, :image)
   end
 
   def set_shopping

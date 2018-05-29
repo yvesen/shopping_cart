@@ -2,7 +2,7 @@
 
 price:<%= @shopping.price%><br>
 Description:<%= @shopping.description %><br>
-
+<%= image_tag @shopping.image, width: '300px' %>
 <br>
 
 <%= link_to 'Back to index', admin_shoppings_path %>
