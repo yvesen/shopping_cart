@@ -1,6 +1,7 @@
 class Admin::ShoppingsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :authenticate_admin
+	before_action :set_shopping, only: [:show, :edit, :update]
 
   def index
   	@shoppings = Shopping.all
@@ -22,13 +23,29 @@ class Admin::ShoppingsController < ApplicationController
   end
 
   def show
-  	@shopping = Shopping.find(params[:id])
+  end
+
+  def edit  	
+  end
+
+  def update
+    if @shopping.update(shopping_params)
+      flash[:notice] = "product was successfully updated"
+      redirect_to admin_shopping_path(@shopping)
+    else
+      flash.now[:alert] = "product was failed to update"
+      render :edit
+    end
   end
 
   private
 
   def shopping_params
     params.require(:shopping).permit(:name, :description, :price)
+  end
+
+  def set_shopping
+  	@shopping = Shopping.find(params[:id])
   end
   
 end
