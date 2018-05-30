@@ -1,1 +1,10 @@
-<h1>前台</h1>
+<% @shoppings.each do |shopping| %>
+    <div>
+      <%= image_tag shopping.image %>
+      <h3><%= link_to shopping.name, shopping_path(shopping) %></h3>
+      <p><%= truncate(shopping.description, length: 80) %></p>
+      <p>$<%= shopping.price %><p>
+    </div>
+<% end %>
+
+<%= paginate @shoppings %>
