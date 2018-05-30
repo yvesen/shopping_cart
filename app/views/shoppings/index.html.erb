@@ -1,10 +1,22 @@
-<% @shoppings.each do |shopping| %>
-    <div>
-      <%= image_tag shopping.image %>
-      <h3><%= link_to shopping.name, shopping_path(shopping) %></h3>
-      <p><%= truncate(shopping.description, length: 80) %></p>
-      <p>$<%= shopping.price %><p>
-    </div>
-<% end %>
+<div class="container">
+	<div class="row">
 
-<%= paginate @shoppings %>
+			<% @shoppings.each do |shopping| %>
+		    <div class="col-sm-6 col-md-4">
+		      <div class="product-item">
+		      	<%= image_tag shopping.image, class: "img-responsive center-block" %>
+		      	<div class="caption">
+		      		<h4><%= link_to shopping.name, shopping_path(shopping) %></h4>
+		      		<p><%= truncate(shopping.description, length: 30) %></p>
+		      		<p>$<%= shopping.price %><p>
+		      	</div>
+		      </div>
+		    </div>
+			<% end %>
+			
+			<div class="text-center">
+				<%= paginate @shoppings %>
+			</div>
+
+	</div>
+</div>
