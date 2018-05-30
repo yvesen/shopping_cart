@@ -1,14 +1,46 @@
-<h1>後台</h1>
 
-<ul>
-  <% @shoppings.each do |shopping| %>
-  <li>
-    <%= shopping.name %>
-    <%= link_to 'Show', admin_shopping_path(shopping) %>
-    <%= link_to 'Edit', edit_admin_shopping_path(shopping) %>
-    <%= link_to 'Delete', admin_shopping_path(shopping), method: :delete, data: {confirm:"Are you sure?"} %>
-  </li>
-  <% end %>
-</ul>
-<%= paginate @shoppings %>
-<%= link_to 'New product', new_admin_shopping_path %>
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-12">
+			
+			<div>
+				<%= link_to 'Add New Product', new_admin_shopping_path, class: "btn btn-default" %>
+			</div>
+			<br>
+			<table class="table table-bordered ">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Product</th>
+						<th>Image</th>
+						<th>Price</th>
+						<th>Option</th>
+					</tr>
+				</thead>
+				<tbody>
+				  <% @shoppings.each do |shopping| %>
+				  <tr>
+				  	<th scope="row"><%= shopping.id %></th>
+				  	<td><%= shopping.name %></td>
+				  	<td><%= image_tag shopping.image, width: '50px' %></td>
+				  	<td>$<%= shopping.price %></td>
+				  	<td>
+				  	  <%= link_to 'Show', admin_shopping_path(shopping), class: "btn btn-default" %>
+				  	  <%= link_to 'Edit', edit_admin_shopping_path(shopping), class: "btn btn-default" %>
+				  	  <%= link_to 'Delete', admin_shopping_path(shopping), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-default" %>
+				  	</td>
+				  </tr>
+				  <% end %>
+				</tbody>
+			</table>
+			<div class="text-center">
+				<%= paginate @shoppings %>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
