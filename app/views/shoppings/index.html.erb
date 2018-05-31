@@ -3,17 +3,17 @@
 
 			<div class="col-md-8">
 				<% @shoppings.each do |shopping| %>
-						    <div class="col-sm-6 col-md-2">
-						      <div class="product-item">
-						      	<%= image_tag shopping.image, class: "img-responsive center-block" %>
-						      	<div class="caption">
-						      		<h5><%= link_to shopping.name, shopping_path(shopping) %></h5>
-						      		<p><%= truncate(shopping.description, length: 20) %></p>
-						      		<p>$<%= shopping.price %><p>
-						      		<%= button_to 'Add to Cart', add_to_cart_shopping_path(shopping), remote: true %>
-						      	</div>
-						      </div>
-						    </div>
+			    <div class="col-sm-6 col-md-2">
+			      <div class="product-item">
+			      	<%= image_tag shopping.image, class: "img-responsive center-block" %>
+			      	<div class="caption">
+			      		<h5><%= link_to shopping.name, shopping_path(shopping) %></h5>
+			      		<p><%= truncate(shopping.description, length: 20) %></p>
+			      		<p>$<%= shopping.price %><p>
+			      		<%= button_to 'Add to Cart', add_to_cart_shopping_path(shopping), remote: true %>
+			      	</div>
+			      </div>
+			    </div>
 				<% end %>
 				
 				<div class="text-center">

@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     @cart
   end
 
-  def authenticate_admin!
+  def authenticate_admin
     unless current_user.admin?
       flash[:alert] = "Not allow!"
       redirect_to root_path
