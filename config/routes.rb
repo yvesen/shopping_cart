@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root "shoppings#index"
 
   resources :shoppings, only: [:index, :show] do
-  	post :add_to_cart, on: :member
+    member do
+  	 post :add_to_cart
+    end
   end
 
   resources :cart

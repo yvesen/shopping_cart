@@ -1,7 +1,6 @@
 class ShoppingsController < ApplicationController
 	before_action :set_shopping, only: [:show]
 
-
   def index 
   	@shoppings = Shopping.page(params[:page]).per(12)
   end

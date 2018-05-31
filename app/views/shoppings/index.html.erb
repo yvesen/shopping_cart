@@ -23,6 +23,16 @@
 
 			<div class="col-md-4">
 				<h3>cart</h3>
+
+				<section id=" ">
+				  <% current_cart.cart_items.each do |item| %>
+				  	<%= image_tag item.shopping.image %>
+				  	<h3><%= item.shopping.name %></h3>
+				  	$<%= item.shopping.price %>
+				  	<%= item.quantity %>
+				  	<%= button_to "Delete, remove_form_cart_shopping_path(item.shopping" %>
+				  <% end %>
+				</section>
 				
 				
 
