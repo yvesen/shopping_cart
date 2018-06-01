@@ -5,7 +5,7 @@ namespace :dev do
     1000.times do |i|
       Shopping.create!(name: FFaker::Product.product,
         description: FFaker::Lorem::sentence(10),
-        price: "200"
+        price: ( rand(500)+1 ) * 10,
       )
     end
     puts "have created fake shoppings"

@@ -26,7 +26,7 @@
 
 				<section id=" ">
 				  <% current_cart.cart_items.each do |item| %>
-				  	<%= image_tag item.shopping.image %>
+				  	<%= image_tag item.shopping.image, width: '50px' %>
 				  	<h3><%= item.shopping.name %></h3>
 				  	$<%= item.shopping.price %>
 				  	<%= item.quantity %>
