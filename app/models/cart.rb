@@ -14,4 +14,11 @@ class Cart < ApplicationRecord
     self.cart_items
   end
 
+  def subtotal
+    # cart_items.map{ |x| x.item_total }.sum
+    cart_items.map do |item|
+      item.item_total
+    end.sum
+  end
+
 end

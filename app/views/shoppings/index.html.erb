@@ -21,26 +21,35 @@
 				</div>
 			</div>
 
-			<div class="col-md-4 cart_side">
+			<div class="col-md-4">
 				<div class="">
 					<h3>cart</h3>
 					<hr>
 					<div>
 					  <% current_cart.cart_items.each do |item| %>
-					  	<div class="cart_img">
+					  	<div class="col-sm-2 cart_img">
 					  		<%= image_tag item.shopping.image, width: '50px' %>
 					  	</div>
-					  	<div class="cart_text">
-					  		<h5><%= item.shopping.name %></h5>
-					  		<div class="cart_price">$<%= item.shopping.price %></div>
-					  		<div class="cart_quant">數量：<%= item.quantity %></div>
+					  	<div class="col-sm-10">
+					  		<div>
+					  			<h5><%= item.shopping.name %></h5>
+					  		</div>
+					  		<div>
+					  			<div class="col-sm-6">$<%= item.shopping.price %></div>
+					  			<div class="col-sm-6">數量：<%= item.quantity %></div>
+					  		</div>
 					  		<div><%= button_to 'Delete', remove_form_cart_shopping_path(item.shopping), remote: true %>
 					  		</div>
 					  	</div>
 					  <% end %>
 					</div>
+					<hr>
+					<div class="subtotal">
+				    <p>SUBTOTAL</p>
+				    <p class="amount">$<%= current_cart.subtotal %></p>
+				  </div>
 				</div>
-				
+			</div>
 				
 
 	</div>
