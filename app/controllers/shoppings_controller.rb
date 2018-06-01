@@ -15,6 +15,14 @@ class ShoppingsController < ApplicationController
     redirect_to root_path
   end
 
+  def remove_form_cart
+    @shopping = Shopping.find(params[:id])
+    cart_item = current_cart.cart_items.find_by(shopping_id: @shopping)
+    cart_item.destroy
+
+    redirect_to root_path
+  end
+
   private
 
   def shopping_params
